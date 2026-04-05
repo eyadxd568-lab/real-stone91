@@ -1,32 +1,6 @@
 {
   "version": 2,
-  "name": "realstoneuae",
-  "builds": [
-    {
-      "src": "**/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "css/*.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "js/*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "img/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "media/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "fonts/**/*",
-      "use": "@vercel/static"
-    }
-  ],
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/", "destination": "/index.html" }
   ]
