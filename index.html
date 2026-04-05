@@ -1,66 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Real Stone - Luxury Marble & Granite</title>
+        <title>Real Stone | Luxury Marble & Granite</title>
         
         <link href="css/master.css" rel="stylesheet">
-        <link rel="stylesheet" href="fonts.googleapis.com/css.css">
-        <link rel="stylesheet" href="fonts.googleapis.com/css-dbccd2944f1c78.css">
-       
-        <script type="text/javascript">
-            (function () {
-                var options = {
-                    whatsapp: "+971504256245", 
-                    call: "+97167476969", 
-                    call_to_action: "Message us", 
-                    button_color: "#129BF4", 
-                    position: "right", 
-                    order: "whatsapp,call", 
-                };
-                var proto = document.location.protocol, host = "whatshelp.io", url = "static.whatshelp.io";
-                var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-                s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-                var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-            })();
-        </script>
-               
-        <link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
-        <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/color1.css" title="color1" media="all" />
-
+        
         <style>
-            /* --- LUXURY SLIDER OVERRIDES --- */
-            #owl-main-slider .item {
-                height: 75vh !important; /* Full-screen luxury feel */
-                min-height: 500px;
-                background-color: #000;
-                overflow: hidden;
+            /* EMERGENCY CSS: If the external CSS fails, this ensures the slider is visible */
+            #owl-main-slider {
                 display: block !important;
+                width: 100%;
+                min-height: 500px;
+                background: #222; /* If still white, it means images are missing */
             }
-
+            #owl-main-slider .item {
+                display: block !important;
+                height: 70vh !important;
+                position: relative;
+            }
             #owl-main-slider .item img {
                 width: 100% !important;
                 height: 100% !important;
-                object-fit: cover !important; /* Forces images to fill space without stretching */
-                object-position: center;
+                object-fit: cover !important;
+                display: block !important;
             }
-
+            .slider-content {
+                position: absolute;
+                bottom: 20%;
+                left: 5%;
+                z-index: 10;
+            }
             .slider-content h1 {
-                text-shadow: 2px 2px 12px rgba(0,0,0,0.8); /* Makes text pop over marble */
-                background: rgba(0,0,0,0.2);
-                padding: 15px;
-                display: inline-block;
-            }
-
-            @media (max-width: 768px) {
-                #owl-main-slider .item { height: 50vh !important; min-height: 350px; }
+                color: #bf1e2d;
+                font-size: 3rem;
+                text-transform: uppercase;
+                text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
             }
         </style>
     </head>
 
-    <body data-scrolling-animations="true">
+    <body>
         <div class="sp-body">
-            
             <header id="this-is-top">
                 <div class="container-fluid">
+                    <div class="row header">
+                        <div class="col-sm-3">
+                            <a href="index.html" id="logo"><h2 style="color:#333;">REAL STONE</h2></a>
+                        </div>
+                        <div class="col-sm-9 text-right">
+                            <div class="h-block" style="display:inline-block; padding:10px;"><span>CALL US</span><br>+971 50 425 6 245</div>
+                            <div class="h-block" style="display:inline-block; padding:10px;"><span>EMAIL US</span><br>info@realstoneuae.com</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div id="owl-main-slider" class="owl-carousel enable-owl-carousel">
+                
+                <div class="item">
+                    <img src="media/main-slider/1.jpg" alt="Slide 1">
+                    <div class="slider-content"><h1>Quality & Excellence</h1></div>
+                </div>
+
+                <div class="item">
+                    <img src="media/main-slider/2.jpg" alt="Slide 2">
+                    <div class="slider-content"><h1>Natural Elegance</h1></div>
+                </div>
+
+                <div class="item">
+                    <img src="media/main-slider/7.jpg" alt="Slide 3">
+                </div>
+
+                <div class="item">
+                    <img src="media/main-slider/9.jpg" alt="Slide 4">
+                    <div class="slider-content"><h1>Expert Installation</h1></div>
+                </div>
+
+                <div class="item">
+                    <img src="media/main-slider/44.jpg" alt="Slide 5">
+                </div>
+            </div>
+
+            <div class="container" style="padding: 50px 20px;">
+                <h1>Welcome to Real Stone</h1>
+                <p>Specialized in the supply and installation of natural stones for exterior and interior stone cladding, flooring, and specialized architectural works.</p>
+            </div>
+
+            <footer style="background: #333; color: white; padding: 40px 0; text-align: center;">
+                <p>&copy; 2026 Real Stone UAE. All Rights Reserved.</p>
+            </footer>
+        </div>
+
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="assets/owl-carousel/owl.carousel.min.js"></script>
+        
+        <script>
+            // EMERGENCY INITIALIZATION
+            $(document).ready(function() {
+                if ($.fn.owlCarousel) {
+                    $("#owl-main-slider").owlCarousel({
+                        navigation : false,
+                        slideSpeed : 300,
+                        paginationSpeed : 400,
+                        singleItem: true,
+                        autoPlay: 5000
+                    });
+                } else {
+                    console.error("Owl Carousel library not found. Check your assets folder.");
+                }
+            });
+        </script>
+    </body>
+</html>
