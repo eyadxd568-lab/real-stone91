@@ -1,57 +1,128 @@
 /*------------------------------------------------------------------
-[SLIDER CUSTOM OVERRIDE]
-Added for Real Stone Image Slider Optimization
+[Master Stylesheet]
+
+- MAIN CSS
+- FONTS
+- PLUGIN CSS
+- CUSTOM SLIDER (REAL STONE UPDATED)
+
+Author:      Andrey Sokoltsov
+Profile:    http://themeforest.net/user/andreysokoltsov
 -------------------------------------------------------------------*/
 
-/* 1. Fix Slider Height & Image Cropping */
-#owl-main-slider .item {
-    height: 75vh; /* Takes up 75% of the screen height */
+/* MAIN CSS */
+@import url('bootstrap.min.css');
+@import url('skin-bootstrap.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('theme.css');
+@import url('responsive.css');
+@import url('animate.css');
+@import url('color.css');
+
+/* FONTS */
+@import url(//fonts.googleapis.com/css?family=Roboto:400,700,300,900,700italic,400italic,500,500italic,300italic);
+@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('../fonts/flaticon/flaticon.css');
+
+/* PLUGIN CSS */
+@import url('../assets/loader/css/loader.css');
+@import url('../assets/owl-carousel/owl.carousel.css');
+@import url('../assets/owl-carousel/owl.theme.css');
+@import url('../assets/isotope/isotope.css');
+
+/*------------------------------------------------------------------
+[CUSTOM SLIDER FOR REAL STONE]
+-------------------------------------------------------------------*/
+
+.main-slider-container {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Adjust height as needed */
     min-height: 500px;
-    background-color: #000;
     overflow: hidden;
+    background-color: #000;
+}
+
+.css-slider {
+    width: 100%;
+    height: 100%;
     position: relative;
 }
 
-#owl-main-slider .item img {
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures marble/granite images fill space without stretching */
-    object-position: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 0;
 }
 
-/* 2. Text Readability (Shadows for Marble Backgrounds) */
-#owl-main-slider .slider-content h1 {
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+/* Initial visible state for the first slide */
+.slide-1 {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Text Overlay Styling */
+.slider-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #fff;
+    pointer-events: none;
+}
+
+.designing-text {
     font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+    line-height: 1.2;
 }
 
-/* 3. Navigation Arrows Styling */
-#owl-main-slider .slider-content .prev, 
-#owl-main-slider .slider-content .next {
-    background: rgba(191, 30, 45, 0.8); /* Using your theme's red color */
+.designing-text span {
+    font-size: 22px;
+    color: #cc0000; /* Real Stone Red */
+    display: block;
+    margin-top: 15px;
+    font-weight: 400;
+}
+
+/* Navigation Arrows */
+.prev-arrow, .next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 35px;
     color: #fff;
-    padding: 10px 15px;
+    background: rgba(0,0,0,0.2);
+    padding: 20px 15px;
+    cursor: pointer;
+    z-index: 20;
     transition: all 0.3s ease;
-    display: inline-block;
-    margin-right: 5px;
+    text-decoration: none !important;
 }
 
-#owl-main-slider .slider-content .prev:hover, 
-#owl-main-slider .slider-content .next:hover {
-    background: #000;
+.prev-arrow:hover, .next-arrow:hover {
+    background: #cc0000;
+    color: #fff;
 }
 
-/* 4. Mobile Responsiveness */
-@media (max-width: 767px) {
-    #owl-main-slider .item {
-        height: 50vh; /* Shorter height for mobile screens */
-        min-height: 300px;
-    }
-    
-    #owl-main-slider .slider-content h1 {
-        font-size: 22px !important; /* Prevents text from being too big on phones */
-    }
+.next-arrow { right: 0; border-radius: 5px 0 0 5px; }
+.prev-arrow { left: 0; border-radius: 0 5px 5px 0; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .designing-text { font-size: 28px; }
+    .designing-text span { font-size: 16px; }
+    .main-slider-container { height: 400px; }
 }
